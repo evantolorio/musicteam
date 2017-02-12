@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('title')
-    Manage Songs
+    Manage Songs and Setlist
 @endsection
 
 @section('content')
@@ -19,7 +19,7 @@
 
             {{-- Left Column --}}
             {{-- Prototype for Line-ups --}}
-            <div class="col s6 offset-s1">
+            <div id="setlist-container" class="col s6 offset-s1">
                 <div class="col s6">
                     <h5>
                         Sunday (February 5, 2017)
@@ -109,7 +109,8 @@
             <div class="col s4">
                 {{-- Search Song --}}
                 <div class="col s12">
-                    <div class="input-field col s5 right">
+                    <div class="input-field col s6 right">
+                        <i class="material-icons prefix" style="margin:.7rem .5rem;">search</i>
                         <input id="search-song" type="text" v-model="searchQuery">
                         <label for="search-song">Search Song</label>
                     </div>
@@ -122,12 +123,14 @@
                                 <h5 class="white-text">
                                     <i class="material-icons left" style="font-size:1.5rem;">queue_music</i>
                                     Songs
-                                    <i class="material-icons right"
-                                        style="font-size:1.5rem; cursor:pointer;"
-                                        @click.prevent="toggleAddSong"
-                                    >
-                                        add
-                                    </i>
+                                    @if ($canEdit)
+                                        <i class="material-icons right"
+                                            style="font-size:1.5rem; cursor:pointer;"
+                                            @click.prevent="toggleAddSong"
+                                        >
+                                            add
+                                        </i>
+                                    @endif
                                 </h5>
                             </li>
                             <li class="collection-item"
@@ -230,16 +233,18 @@
                                     Original: @{{ song.maleKey }} | Male: @{{ song.maleKey }} | Female: @{{ song.femaleKey }}
                                 </p>
                                 <span class="secondary-content">
-                                    <a href="#!"
-                                        @click.prevent="toggleEditSong"
-                                    >
-                                        <i class="material-icons teal-text">edit</i>
-                                    </a>
-                                    <a href="#!"
-                                        @click.prevent="promptDeleteSongConfirmation"
-                                    >
-                                        <i class="material-icons grey-text">delete</i>
-                                    </a>
+                                    @if ($canEdit)
+                                        <a href="#!"
+                                            @click.prevent="toggleEditSong"
+                                        >
+                                            <i class="material-icons teal-text">edit</i>
+                                        </a>
+                                        <a href="#!"
+                                            @click.prevent="promptDeleteSongConfirmation"
+                                        >
+                                            <i class="material-icons grey-text">delete</i>
+                                        </a>
+                                    @endif
                                 </span>
                             </li>
                         </ul>

@@ -14,7 +14,10 @@
 
         <nav class="navbar-fixed">
             <div class="nav-wrapper" style="background-color:#2680e1;">
-                <a href="#" class="brand-logo center">Victory LB Music Team</a>
+                <a href="#" class="brand-logo center">
+					<img src="images/music_logo.png" width="50" height="50" class="left" alt="" style="margin-top:.5rem;">
+					Victory Los Baños Music Team
+				</a>
             </div>
         </nav>
 

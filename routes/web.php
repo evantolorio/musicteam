@@ -11,8 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'SongController@viewSongs');
 
 Route::get('/manage-songs', 'SongController@viewManageSongs');
+
+// Route::get('/');

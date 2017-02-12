@@ -11,3 +11,10 @@ nav{
 .caption{
     font-weight: 300;
 }
+
+#setlist-container div > h5{
+    padding: 1rem;
+    background-color: #01458e;
+    color: white;
+    text-align: center;
+}
