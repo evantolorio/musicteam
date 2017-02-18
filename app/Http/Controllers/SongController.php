@@ -17,7 +17,8 @@ class SongController extends Controller
      */
     public function viewManageSongs()
     {
-        return view('songs',['canEdit' => true]);
+        $songs = Song::all();
+        return view('songs',['canEdit' => true, 'songs' => $songs]);
     }
 
     /**
@@ -28,22 +29,66 @@ class SongController extends Controller
      */
     public function viewSongs()
     {
-        return view('songs',['canEdit' => false]);
+        $songs = Song::all();
+        return view('songs',['canEdit' => false, 'songs' => $songs]);
     }
 
-
+    /**
+     * Add Song
+     * AJAX
+     *
+     * @return  String
+     */
     public function addSong(Request $request)
     {
-        return "OK";
+        if($request->ajax()){
+            $song = new Song;
+            $song->title = $request->title;
+            $song->artist = $request->artist;
+            $song->original_key = $request->originalKey;
+            $song->male_key = $request->maleKey;
+            $song->female_key = $request->femaleKey;
+            $song->save();
+
+            return "OK";
+        }
+
     }
 
+    /**
+     * Edit Song
+     * AJAX
+     *
+     * @return  String
+     */
     public function editSong(Request $request)
     {
-        return "OK";
+        if($request->ajax()){
+            $song = Song::find($request->songId);
+            $song->title = $request->title;
+            $song->artist = $request->artist;
+            $song->original_key = $request->originalKey;
+            $song->male_key = $request->maleKey;
+            $song->female_key = $request->femaleKey;
+            $song->save();
+
+            return "OK";
+        }
     }
 
+    /**
+     * Delete Song
+     * AJAX
+     *
+     * @return  String
+     */
     public function deleteSong(Request $request)
     {
-        return "OK";
+        if($request->ajax()){
+            $song = Song::find($request->songId);
+            $song->delete();
+
+            return "OK";
+        }
     }
 }
