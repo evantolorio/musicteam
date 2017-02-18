@@ -35,8 +35,8 @@
                         <tbody>
                             <tr v-for="i in 4">
                                 <td>
-                                    @{{ songs[i].title }} <br>
-                                    <span class="grey-text"> @{{ songs[i].artist }}</span>
+                                    @{{ songs[i-1].title }} <br>
+                                    <span class="grey-text"> @{{ songs[i-1].artist }}</span>
                                 </td>
                                 <td>
                                     <table>
@@ -44,15 +44,15 @@
                                         <tbody>
                                             <tr>
                                                 <td style="padding:0">Original</td>
-                                                <td style="padding:0"> @{{ songs[i].maleKey }} </td>
+                                                <td style="padding:0"> @{{ songs[i-1].original_key }} </td>
                                             </tr>
                                             <tr>
                                                 <td style="padding:0">Male</td>
-                                                <td style="padding:0"> @{{ songs[i].maleKey }} </td>
+                                                <td style="padding:0"> @{{ songs[i-1].male_key }} </td>
                                             </tr>
                                             <tr>
                                                 <td class="align-left" style="padding:0">Female</td>
-                                                <td class="align-left" style="padding:0"> @{{ songs[i].femaleKey }} </td>
+                                                <td class="align-left" style="padding:0"> @{{ songs[i-1].female_key }} </td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -77,8 +77,8 @@
                         <tbody>
                             <tr v-for="i in 4">
                                 <td>
-                                    @{{ songs[i].title }} <br>
-                                    <span class="grey-text"> @{{ songs[i].artist }}</span>
+                                    @{{ songs[i+4].title }} <br>
+                                    <span class="grey-text"> @{{ songs[i+4].artist }}</span>
                                 </td>
                                 <td>
                                     <table>
@@ -86,15 +86,15 @@
                                         <tbody>
                                             <tr>
                                                 <td style="padding:0">Original</td>
-                                                <td style="padding:0"> @{{ songs[i].maleKey }} </td>
+                                                <td style="padding:0"> @{{ songs[i+4].original_key }} </td>
                                             </tr>
                                             <tr>
                                                 <td style="padding:0">Male</td>
-                                                <td style="padding:0"> @{{ songs[i].maleKey }} </td>
+                                                <td style="padding:0"> @{{ songs[i+4].male_key }} </td>
                                             </tr>
                                             <tr>
                                                 <td class="align-left" style="padding:0">Female</td>
-                                                <td class="align-left" style="padding:0"> @{{ songs[i].femaleKey }} </td>
+                                                <td class="align-left" style="padding:0"> @{{ songs[i+4].female_key }} </td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -230,17 +230,17 @@
                                 <span class="title" style="font-weight:500">@{{ song.title }}</span>
                                 <p>
                                     @{{ song.artist }} <br>
-                                    Original: @{{ song.maleKey }} | Male: @{{ song.maleKey }} | Female: @{{ song.femaleKey }}
+                                    Original: @{{ song.original_key }} | Male: @{{ song.male_key }} | Female: @{{ song.female_key }}
                                 </p>
                                 <span class="secondary-content">
                                     @if ($canEdit)
                                         <a href="#!"
-                                            @click.prevent="toggleEditSong"
+                                            @click.prevent="toggleEditSong(song.id)"
                                         >
                                             <i class="material-icons teal-text">edit</i>
                                         </a>
                                         <a href="#!"
-                                            @click.prevent="promptDeleteSongConfirmation"
+                                            @click.prevent="promptDeleteSongConfirmation(song.id)"
                                         >
                                             <i class="material-icons grey-text">delete</i>
                                         </a>
@@ -251,11 +251,45 @@
                     </div>
                 </div>
 
+                <div id="edit-song-modal" class="modal">
+                    <div class="modal-content row">
+                        <h4>Edit @{{ editSongData.title }}</h4>
+                        <div class="input-field col s12">
+                            <input id="edit-title" type="text" class="validate" v-model="editSongData.title">
+                            <label for="edit-title">Title</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input id="edit-artist" type="text" class="validate" v-model="editSongData.artist">
+                            <label for="edit-artist">Artist</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="edit-male-key" type="text" class="validate" v-model="editSongData.maleKey">
+                            <label for="edit-male-key">Male Key</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="edit-female-key" type="text" class="validate" v-model="editSongData.femaleKey">
+                            <label for="edit-female-key">Female Key</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="edit-original-key" type="text" class="validate" v-model="editSongData.originalKey">
+                            <label for="edit-original-key">Original Key</label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a class="modal-action modal-close waves-effect waves-green btn-flat ">Close</a>
+                        <a class="modal-action waves-effect waves-green btn-flat edit-product-button"
+                            @click.prevent="editSong"
+                        >
+                            Edit
+                        </a>
+                    </div>
+                </div>
+
                 <div id="delete-song-confirmation-modal" class="modal">
                     <div class="modal-content">
                         <h4>Remove Song Confirmation</h4>
                         <p>
-                            Are you sure you want to remove @{{ removeSongData.title }} from the list?
+                            Are you sure you want to remove <b> @{{ removeSongData.title }} </b> from the list?
                         </p>
                     </div>
                     <div class="modal-footer">
@@ -274,6 +308,9 @@
 @endsection
 
 @section('customScripts')
-	<script src="/js/songs.js" charset="utf-8"></script>
+	{{-- <script src="/js/songs.js" charset="utf-8"></script> --}}
+    <script type="text/javascript">
+        var rawSongs = {!! $songs !!};
+    </script>
 	<script src="/js/operations.js" charset="utf-8"></script>
 @endsection

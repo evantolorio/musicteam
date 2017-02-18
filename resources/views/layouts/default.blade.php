@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8">
 		<title> @yield('title') </title>
+
+		<meta charset="utf-8">
+		<meta name="csrf-token" content="{{ csrf_token() }}">
 
 		<!-- Style sheets -->
 		<link href="/css/icon.css" rel="stylesheet" type="text/css">
@@ -24,6 +26,7 @@
         @yield('content')
 
 		<script src="/js/vue.js" charset="utf-8"></script>
+		<script src="/js/vue-resource.min.js" charset="utf-8"></script>
 		<script src="/js/jquery.min.js" charset="utf-8"></script>
 		<script src="/js/materialize.min.js" charset="utf-8"></script>
 		<script src="/js/lodash.min.js" charset="utf-8"></script>

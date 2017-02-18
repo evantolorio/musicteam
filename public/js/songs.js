@@ -302,3 +302,9 @@ var songs = [
 			'femaleKey': ''
 		}
 	];
+
+	var i = 1;
+	songs.forEach(function(element){
+		element.id = i;
+		i++;
+	});

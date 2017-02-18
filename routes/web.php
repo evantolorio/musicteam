@@ -15,4 +15,12 @@ Route::get('/', 'SongController@viewSongs');
 
 Route::get('/manage-songs', 'SongController@viewManageSongs');
 
-// Route::get('/');
+// Song-related
+Route::post('/song', 'SongController@addSong');
+Route::patch('/song', 'SongController@editSong');
+Route::delete('/song', 'SongController@deleteSong');
+
+// Events-related
+Route::post('/event', 'EventController@addEvent');
+Route::patch('/event', 'EventController@editEvent');
+Route::delete('/event', 'EventController@deleteEvent');
