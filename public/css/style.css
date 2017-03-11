@@ -12,13 +12,39 @@ nav{
     font-weight: 300;
 }
 
-#setlist-container div > h5{
-    padding: 1rem;
-    background-color: #01458e;
-    color: white;
-    text-align: center;
+#edit-song-modal, #add-event-modal{
+    width: 450px;
 }
 
-#edit-song-modal{
-    width: 450px;
+#add-event-container{
+    margin-top: 1rem;
+    border:2px dashed grey;
+    height:5rem;
+    cursor: pointer;
+}
+
+#add-event-container span{
+    font-size: 1.2rem;
+}
+
+.collapsible-header{
+    font-size: 1.6rem;
+}
+
+.collapsible-header.active{
+    background-color: #01458e;
+    color: white;
+}
+
+.dropdown-content, .dropdown-content.active {
+    width: 10rem !important;
+}
+
+#setlist-container div > h6{
+    font-size: 1.6rem;
+    color: white;
+    text-align: center;
+    height: 5.5rem;
+    padding: 1rem;
+    background-color: #01458e;
 }

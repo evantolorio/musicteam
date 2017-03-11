@@ -7,102 +7,39 @@
 @section('content')
 
     <div id="song-container">
-        {{-- <div class="row" style="padding-top:1.5em;">
-            <div class="col s12">
-                <div class="caption">
-                    The following are the recommended song keys
-                </div>
-            </div>
-        </div> --}}
 
         <div class="row" style="padding-top:2rem;">
 
             {{-- Left Column --}}
             {{-- Prototype for Line-ups --}}
             <div id="setlist-container" class="col s6 offset-s1">
-                <div class="col s6">
-                    <h5>
-                        Sunday (February 5, 2017)
-                    </h5>
 
-                    <table class="bordered">
-                        <thead>
-                            <tr>
-                                <td style="font-weight:400"> Song </td>
-                                <td style="font-weight:400"> Recommended Keys </td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr v-for="i in 4">
-                                <td>
-                                    @{{ songs[i-1].title }} <br>
-                                    <span class="grey-text"> @{{ songs[i-1].artist }}</span>
-                                </td>
-                                <td>
-                                    <table>
-                                        <thead> </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td style="padding:0">Original</td>
-                                                <td style="padding:0"> @{{ songs[i-1].original_key }} </td>
-                                            </tr>
-                                            <tr>
-                                                <td style="padding:0">Male</td>
-                                                <td style="padding:0"> @{{ songs[i-1].male_key }} </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="align-left" style="padding:0">Female</td>
-                                                <td class="align-left" style="padding:0"> @{{ songs[i-1].female_key }} </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="carousel carousel-slider center z-depth-1" data-indicators="true">
+                    {{-- <div class="carousel-fixed-item center">
+                        <a href="" class="btn waves-effect white grey-text darken-text-2">button</a>
+                    </div> --}}
+
+                    <div class="carousel-item red white-text" href="#one!" style="background-image:url('images/music_bg.jpg'); background-size:cover;">
+                        <h2></h2>
+                        <p>
+                            <img src="images/music_text.png" alt="" />
+                        </p>
+                    </div>
+
                 </div>
 
-                <div class="col s6">
-                    <h5>
-                        Midweek (February 15-16, 2017)
-                    </h5>
-
-                    <table class="bordered">
-                        <thead>
-                            <tr>
-                                <td style="font-weight:400"> Song </td>
-                                <td style="font-weight:400"> Recommended Keys </td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr v-for="i in 4">
-                                <td>
-                                    @{{ songs[i+4].title }} <br>
-                                    <span class="grey-text"> @{{ songs[i+4].artist }}</span>
-                                </td>
-                                <td>
-                                    <table>
-                                        <thead> </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td style="padding:0">Original</td>
-                                                <td style="padding:0"> @{{ songs[i+4].original_key }} </td>
-                                            </tr>
-                                            <tr>
-                                                <td style="padding:0">Male</td>
-                                                <td style="padding:0"> @{{ songs[i+4].male_key }} </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="align-left" style="padding:0">Female</td>
-                                                <td class="align-left" style="padding:0"> @{{ songs[i+4].female_key }} </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="col s12 center-align" style="margin-top:2rem;">
+                    <h4>
+                        <b>SET LIST</b>
+                    </h4>
                 </div>
+
+                @if ($canEdit)
+                    @include('_manageEvents')
+                @else
+                    @include('_showEvents')
+                @endif
+
             </div>
 
             {{-- Right Column --}}
@@ -223,7 +160,7 @@
                             <li class="collection-item avatar" v-for="song in alphabeticallySortedSongs">
                                 {{-- List of Songs --}}
                                 <i class="material-icons circle"
-                                        style="font-size:1.2rem;"
+                                        style="font-size:1.2rem; background-color:#2680e1;"
                                 >
                                     music_note
                                 </i>
@@ -255,30 +192,30 @@
                     <div class="modal-content row">
                         <h4>Edit @{{ editSongData.title }}</h4>
                         <div class="input-field col s12">
-                            <input id="edit-title" type="text" class="validate" v-model="editSongData.title">
+                            <input id="edit-title" type="text" v-model="editSongData.title">
                             <label for="edit-title">Title</label>
                         </div>
                         <div class="input-field col s12">
-                            <input id="edit-artist" type="text" class="validate" v-model="editSongData.artist">
+                            <input id="edit-artist" type="text" v-model="editSongData.artist">
                             <label for="edit-artist">Artist</label>
                         </div>
                         <div class="input-field col s6">
-                            <input id="edit-male-key" type="text" class="validate" v-model="editSongData.maleKey">
+                            <input id="edit-male-key" type="text" v-model="editSongData.maleKey">
                             <label for="edit-male-key">Male Key</label>
                         </div>
                         <div class="input-field col s6">
-                            <input id="edit-female-key" type="text" class="validate" v-model="editSongData.femaleKey">
+                            <input id="edit-female-key" type="text" v-model="editSongData.femaleKey">
                             <label for="edit-female-key">Female Key</label>
                         </div>
                         <div class="input-field col s6">
-                            <input id="edit-original-key" type="text" class="validate" v-model="editSongData.originalKey">
+                            <input id="edit-original-key" type="text" v-model="editSongData.originalKey">
                             <label for="edit-original-key">Original Key</label>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <a class="modal-action modal-close waves-effect waves-green btn-flat ">Close</a>
                         <a class="modal-action waves-effect waves-green btn-flat edit-product-button"
-                            @click.prevent="editSong"
+                            @click.prevent="editSong($event)"
                         >
                             Edit
                         </a>
@@ -289,13 +226,13 @@
                     <div class="modal-content">
                         <h4>Remove Song Confirmation</h4>
                         <p>
-                            Are you sure you want to remove <b> @{{ removeSongData.title }} </b> from the list?
+                            Are you sure you want to remove <b> @{{ removeSongData.title }} </b> from the song list?
                         </p>
                     </div>
                     <div class="modal-footer">
                         <a class="modal-action modal-close waves-effect waves-green btn-flat ">Close</a>
                         <a class="modal-action waves-effect waves-green btn-flat remove-product-button"
-                            @click.prevent="deleteSong"
+                            @click.prevent="deleteSong($event)"
                         >
                             Yes
                         </a>
@@ -311,6 +248,7 @@
 	{{-- <script src="/js/songs.js" charset="utf-8"></script> --}}
     <script type="text/javascript">
         var rawSongs = {!! $songs !!};
+        var rawEvents = {!! $events !!};
     </script>
 	<script src="/js/operations.js" charset="utf-8"></script>
 @endsection
