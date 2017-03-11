@@ -14,6 +14,7 @@ class CreateEventSongTable extends Migration
     public function up()
     {
         Schema::create('event_song', function (Blueprint $table) {
+            $table->string('order');
             $table->integer('event_id')->unsigned();
             $table->integer('song_id')->unsigned();
         });

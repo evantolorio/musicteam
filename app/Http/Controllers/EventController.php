@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\{Event,Song};
 
 class EventController extends Controller
 {
@@ -13,7 +14,13 @@ class EventController extends Controller
      */
     public function addEvent(Request $request)
     {
-        return "OK";
+        if($request->ajax()){
+            $event = new Event;
+            $event->name = $request->name;
+            $event->save();
+
+            return $event->id;
+        }
     }
 
     /**
@@ -23,7 +30,13 @@ class EventController extends Controller
      */
     public function editEvent(Request $request)
     {
-        return "OK";
+        if($request->ajax()){
+            $event = Event::find($request->eventId);
+            $event->name = $request->name;
+            $event->save();
+
+            return "OK";
+        }
     }
 
     /**
@@ -33,6 +46,12 @@ class EventController extends Controller
      */
     public function deleteEvent(Request $request)
     {
-        return "OK";
+        if($request->ajax()){
+            $event = Event::find($request->eventId);
+            $event->songs()->detach();
+            $event->delete();
+
+            return "OK";
+        }
     }
 }

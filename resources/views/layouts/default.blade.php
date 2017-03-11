@@ -27,6 +27,8 @@
 
 		<script src="/js/vue.js" charset="utf-8"></script>
 		<script src="/js/vue-resource.min.js" charset="utf-8"></script>
+		<source src="/js/sortable.min.js" type="utf-8">
+		<source src="/js/vuedraggable.min.js" type="utf-8">
 		<script src="/js/jquery.min.js" charset="utf-8"></script>
 		<script src="/js/materialize.min.js" charset="utf-8"></script>
 		<script src="/js/lodash.min.js" charset="utf-8"></script>

@@ -18,7 +18,8 @@ class SongController extends Controller
     public function viewManageSongs()
     {
         $songs = Song::all();
-        return view('songs',['canEdit' => true, 'songs' => $songs]);
+        $events = Event::with('songs')->get();
+        return view('songs',['canEdit' => true, 'songs' => $songs, 'events' => $events]);
     }
 
     /**
@@ -30,7 +31,12 @@ class SongController extends Controller
     public function viewSongs()
     {
         $songs = Song::all();
-        return view('songs',['canEdit' => false, 'songs' => $songs]);
+        $events = Event::with('songs')->get();
+
+        $firstTwoEvents[] = $events->pop();
+        $firstTwoEvents[] = $events->pop();
+
+        return view('songs',['canEdit' => false, 'songs' => $songs, 'events' => $events, 'firstTwoEvents' => $firstTwoEvents]);
     }
 
     /**

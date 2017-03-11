@@ -22,8 +22,7 @@ class Event extends Model
      * @var array
      */
     protected $fillable = [
-        'name',
-        'date'
+        'name'
     ];
 
     /**
@@ -31,6 +30,6 @@ class Event extends Model
      */
     public function songs()
     {
-        return $this->belongsToMany(Song::class);
+        return $this->belongsToMany(Song::class)->withPivot('order');
     }
 }
