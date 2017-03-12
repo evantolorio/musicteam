@@ -1,6 +1,6 @@
 <div id="first-two-events-container" class="col s12">
-    @foreach ($firstTwoEvents as $event)
-        <div class="col s6">
+    @foreach ($firstThreeEvents as $event)
+        <div class="col s6" style="margin-top: 1rem;">
             <h6>
                 {{ $event->name }}
             </h6>
@@ -56,7 +56,7 @@
                 @{{ event.name }}
             </div>
             <div class="collapsible-body row">
-                <div class="col s6 offset-s3">
+                <div class="col s8 offset-s2">
                     <table class="bordered">
                         <thead>
                             <tr>

@@ -28,7 +28,7 @@ nav{
 }
 
 .collapsible-header{
-    font-size: 1.6rem;
+    font-size: 1.4rem;
 }
 
 .collapsible-header.active{
@@ -41,7 +41,7 @@ nav{
 }
 
 #setlist-container div > h6{
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     color: white;
     text-align: center;
     height: 5.5rem;

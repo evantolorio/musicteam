@@ -31,7 +31,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col s6 offset-s3">
+                <div class="col s8 offset-s2">
                     <table class="bordered">
                         <thead>
                             <tr>

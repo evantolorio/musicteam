@@ -34,10 +34,10 @@ class SongController extends Controller
         $songs = Song::all();
         $events = Event::with('songs')->get();
 
-        $firstTwoEvents = $events->take(2);
-        $events = $events->slice(2);
+        $firstThreeEvents = $events->take(3);
+        $events = $events->slice(3);
 
-        return view('songs',['canEdit' => false, 'songs' => $songs, 'events' => $events, 'firstTwoEvents' => $firstTwoEvents]);
+        return view('songs',['canEdit' => false, 'songs' => $songs, 'events' => $events, 'firstThreeEvents' => $firstThreeEvents]);
     }
 
     /**
