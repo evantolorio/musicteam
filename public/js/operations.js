@@ -64,6 +64,7 @@ var vm = new Vue({
 
 			return _.sortBy(songs, ['title']);
 		}
+		
 	},
 	methods:{
 		searchSongById: function(id){

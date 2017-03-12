@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\{Event,Song};
+use App\Event;
+use App\Song;
 
 class SongController extends Controller
 {
@@ -33,8 +34,8 @@ class SongController extends Controller
         $songs = Song::all();
         $events = Event::with('songs')->get();
 
-        $firstTwoEvents[] = $events->pop();
-        $firstTwoEvents[] = $events->pop();
+        $firstTwoEvents = $events->take(2);
+        $events = $events->slice(2);
 
         return view('songs',['canEdit' => false, 'songs' => $songs, 'events' => $events, 'firstTwoEvents' => $firstTwoEvents]);
     }
