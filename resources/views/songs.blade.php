@@ -19,7 +19,7 @@
                         <a href="" class="btn waves-effect white grey-text darken-text-2">button</a>
                     </div> --}}
 
-                    <div class="carousel-item red white-text" href="#one!" style="background-image:url('images/music_bg.jpg'); background-size:cover;">
+                    <div class="carousel-item white-text" href="#one!" style="background-image:url('images/music_bg.jpg'); background-size:cover;">
                         <h2></h2>
                         <p>
                             <img src="images/music_text.png" alt="" />
@@ -249,7 +249,6 @@
     <script type="text/javascript">
         var rawSongs = {!! $songs !!};
         var rawEvents = {!! $events !!};
-        console.log(rawEvents);
     </script>
 	<script src="/js/operations.js" charset="utf-8"></script>
 @endsection
