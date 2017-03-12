@@ -249,6 +249,7 @@
     <script type="text/javascript">
         var rawSongs = {!! $songs !!};
         var rawEvents = {!! $events !!};
+        console.log(rawEvents);
     </script>
 	<script src="/js/operations.js" charset="utf-8"></script>
 @endsection

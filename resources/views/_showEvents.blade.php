@@ -67,8 +67,8 @@
                         <tbody>
                             <tr v-for="songIndex in event.songs">
                                 <td>
-                                    @{{ songs[songIndex.id].title }} <br>
-                                    <span class="grey-text"> @{{ songs[songIndex.id].artist }}</span>
+                                    @{{ songs[searchSongById(songIndex.id)].title }} <br>
+                                    <span class="grey-text"> @{{ songs[searchSongById(songIndex.id)].artist }}</span>
                                 </td>
                                 <td>
                                     <table>
@@ -76,15 +76,15 @@
                                         <tbody>
                                             <tr>
                                                 <td style="padding:0">Original</td>
-                                                <td style="padding:0"> @{{ songs[songIndex.id].original_key }} </td>
+                                                <td style="padding:0"> @{{ songs[searchSongById(songIndex.id)].original_key }} </td>
                                             </tr>
                                             <tr>
                                                 <td style="padding:0">Male</td>
-                                                <td style="padding:0"> @{{ songs[songIndex.id].male_key }} </td>
+                                                <td style="padding:0"> @{{ songs[searchSongById(songIndex.id)].male_key }} </td>
                                             </tr>
                                             <tr>
                                                 <td class="align-left" style="padding:0">Female</td>
-                                                <td class="align-left" style="padding:0"> @{{ songs[songIndex.id].female_key }} </td>
+                                                <td class="align-left" style="padding:0"> @{{ songs[searchSongById(songIndex.id)].female_key }} </td>
                                             </tr>
                                         </tbody>
                                     </table>

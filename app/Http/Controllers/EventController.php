@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\{Event,Song};
+use App\Event;
+use App\Song;
 
 class EventController extends Controller
 {
