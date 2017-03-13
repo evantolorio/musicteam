@@ -12,7 +12,8 @@
         <li v-for="event in events" :id="'event-' + event.id">
             <div class="collapsible-header">
                 <i class="material-icons">event_available</i>
-                @{{ event.name }}
+                <span>@{{ event.parsedName }}</span>
+                <span class="right">@{{ event.parsedDate }}</span>
             </div>
             <div class="collapsible-body row">
                 <div class="col s12 right-align">
