@@ -158,7 +158,7 @@ class SongsTableSeeder extends Seeder
                 'artist' => 'Hillsong Young & Free',
                 'original_key' => 'E',
                 'male_key' => 'E',
-                'female_key' => 'F'
+                'female_key' => 'E'
             ],
             [
                 'title' => 'Praise You Lord',

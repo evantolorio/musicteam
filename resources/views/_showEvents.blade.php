@@ -2,7 +2,8 @@
     @foreach ($firstThreeEvents as $event)
         <div class="col s6" style="margin-top: 1rem;">
             <h6>
-                {{ $event->name }}
+                <span> {{ $event->parsedName }} </span> <br>
+                <span style="font-size:1rem;"> {{ $event->parsedDate }} </span>
             </h6>
 
             <table class="bordered">
@@ -46,6 +47,11 @@
             </table>
         </div>
     @endforeach
+        <div class="col s6" style="margin-top: 1rem;">
+            <h6>
+                Other Events
+            </h6>
+        </div>
 </div>
 
 <div class="col s12" style="margin-top:2rem;">
@@ -53,7 +59,8 @@
         <li v-for="event in events" :id="'event-' + event.id">
             <div class="collapsible-header">
                 <i class="material-icons">event_available</i>
-                @{{ event.name }}
+                <span>@{{ event.parsedName }}</span>
+                <span class="right">@{{ event.parsedDate }}</span>
             </div>
             <div class="collapsible-body row">
                 <div class="col s8 offset-s2">

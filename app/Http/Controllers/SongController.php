@@ -34,6 +34,12 @@ class SongController extends Controller
         $songs = Song::all();
         $events = Event::with('songs')->get();
 
+        foreach ($events as $event) {
+            $parsedName = explode("|", $event->name);
+            $event->parsedName = $parsedName[0];
+            $event->parsedDate = $parsedName[1];
+        }
+        
         $firstThreeEvents = $events->take(3);
         $events = $events->slice(3);
 
