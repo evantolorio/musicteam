@@ -1,3 +1,9 @@
+<div class="col s12 center-align" style="margin-top:2rem;">
+    <h4>
+        <b>SETLIST</b>
+    </h4>
+</div>
+
 <div id="add-event-container"
     class="col s12 valign-wrapper center-align"
     @click.prevent="toggleAddEvent"

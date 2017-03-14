@@ -28,12 +28,6 @@
 
                 </div>
 
-                <div class="col s12 center-align" style="margin-top:2rem;">
-                    <h4>
-                        <b>SET LIST</b>
-                    </h4>
-                </div>
-
                 @if ($canEdit)
                     @include('_manageEvents')
                 @else

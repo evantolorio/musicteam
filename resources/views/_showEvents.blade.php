@@ -1,3 +1,9 @@
+<div class="col s12 center-align" style="margin-top:2rem;">
+    <h4>
+        <b>CURRENT SETLIST</b>
+    </h4>
+</div>
+
 <div id="first-two-events-container" class="col s12">
     @foreach ($firstThreeEvents as $event)
         <div class="col s6" style="margin-top: 1rem;">
@@ -54,7 +60,13 @@
         </div>
 </div>
 
-<div class="col s12" style="margin-top:2rem;">
+<div class="col s12 center-align" style="margin-top:2rem;">
+    <h4>
+        <b>SETLIST</b>
+    </h4>
+</div>
+
+<div class="col s12">
     <ul id="events-container" class="collapsible popout" data-collapsible="accordion">
         <li v-for="event in events" :id="'event-' + event.id">
             <div class="collapsible-header">
