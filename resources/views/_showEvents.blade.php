@@ -66,6 +66,11 @@
     </h4>
 </div>
 
+<div class="col s12 left-align" style="margin-left:2rem;">
+    <span class="grey-text left-align">Click on the specified date to show its respective setlist.</span>
+
+</div>
+
 <div class="col s12">
     <ul id="events-container" class="collapsible popout" data-collapsible="accordion">
         <li v-for="event in events" :id="'event-' + event.id">

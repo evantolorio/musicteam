@@ -40,7 +40,7 @@
             <div class="col s4">
                 {{-- Search Song --}}
                 <div class="col s12">
-                    <div class="input-field col s6 right">
+                    <div class="input-field col s6 left">
                         <i class="material-icons prefix" style="margin:.7rem .5rem;">search</i>
                         <input id="search-song" type="text" v-model="searchQuery">
                         <label for="search-song">Search Song</label>
