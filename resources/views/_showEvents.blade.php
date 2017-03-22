@@ -28,23 +28,45 @@
                                 <span class="grey-text"> {{ $song->artist }}</span>
                             </td>
                             <td>
-                                <table>
+                                <div class="row">
+                                    <div class="col s8">
+                                        Original
+                                    </div>
+                                    <div class="col s4">
+                                        {{ $song->original_key }}
+                                    </div>
+
+                                    <div class="col s8">
+                                        Male
+                                    </div>
+                                    <div class="col s4">
+                                        {{ $song->male_key }}
+                                    </div>
+
+                                    <div class="col s8">
+                                        Female
+                                    </div>
+                                    <div class="col s4">
+                                        {{ $song->female_key }}
+                                    </div>
+                                </div>
+                                {{-- <table>
                                     <thead> </thead>
                                     <tbody>
                                         <tr>
-                                            <td style="padding:0">Original</td>
-                                            <td style="padding:0"> {{ $song->original_key }} </td>
+                                            <td style="padding:0"></td>
+                                            <td class="align-left" style="padding:0">  </td>
                                         </tr>
                                         <tr>
                                             <td style="padding:0">Male</td>
-                                            <td style="padding:0"> {{ $song->male_key }} </td>
+                                            <td class="align-left" style="padding:0"> {{ $song->male_key }} </td>
                                         </tr>
                                         <tr>
-                                            <td class="align-left" style="padding:0">Female</td>
+                                            <td style="padding:0">Female</td>
                                             <td class="align-left" style="padding:0"> {{ $song->female_key }} </td>
                                         </tr>
                                     </tbody>
-                                </table>
+                                </table> --}}
                             </td>
                         </tr>
                     @endforeach
@@ -95,23 +117,28 @@
                                     <span class="grey-text"> @{{ songs[searchSongById(songIndex.id)].artist }}</span>
                                 </td>
                                 <td>
-                                    <table>
-                                        <thead> </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td style="padding:0">Original</td>
-                                                <td style="padding:0"> @{{ songs[searchSongById(songIndex.id)].original_key }} </td>
-                                            </tr>
-                                            <tr>
-                                                <td style="padding:0">Male</td>
-                                                <td style="padding:0"> @{{ songs[searchSongById(songIndex.id)].male_key }} </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="align-left" style="padding:0">Female</td>
-                                                <td class="align-left" style="padding:0"> @{{ songs[searchSongById(songIndex.id)].female_key }} </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                    <div class="row">
+                                        <div class="col s8">
+                                            Original
+                                        </div>
+                                        <div class="col s4">
+                                            @{{ songs[searchSongById(songIndex.id)].original_key }}
+                                        </div>
+
+                                        <div class="col s8">
+                                            Male
+                                        </div>
+                                        <div class="col s4">
+                                            @{{ songs[searchSongById(songIndex.id)].male_key }}
+                                        </div>
+
+                                        <div class="col s8">
+                                            Female
+                                        </div>
+                                        <div class="col s4">
+                                            @{{ songs[searchSongById(songIndex.id)].female_key }}
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                         </tbody>
