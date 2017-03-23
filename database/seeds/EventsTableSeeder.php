@@ -26,12 +26,20 @@ class EventsTableSeeder extends Seeder
                 'songs' => [21, 22, 29, 9]
             ],
             [
+                'name' => 'Youth ; March 30, 2017',
+                'songs' => [21, 59, 60, 46]
+            ],
+            [
                 'name' => 'Sunday 9AM ; April 2, 2017',
                 'songs' => [24, 56, 25]
             ],
             [
                 'name' => 'Sunday 11AM | 5PM | 7PM ; April 2, 2017',
                 'songs' => [24, 54, 25]
+            ],
+            [
+                'name' => 'Youth ; April 6, 2017',
+                'songs' => [19, 59, 47, 36]
             ],
             [
                 'name' => 'Sunday 9AM ; April 9, 2017',

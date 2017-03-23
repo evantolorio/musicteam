@@ -418,6 +418,20 @@ class SongsTableSeeder extends Seeder
                 'original_key' => 'D',
                 'male_key' => 'D',
                 'female_key' => 'E'
+            ],
+            [
+                'title' => 'This is Who We Are',
+                'artist' => 'Victory Worship',
+                'original_key' => 'C',
+                'male_key' => 'B',
+                'female_key' => 'C'
+            ],
+            [
+                'title' => 'Strength of My Life',
+                'artist' => 'Planetshakers',
+                'original_key' => 'C',
+                'male_key' => 'C',
+                'female_key' => 'D'
             ]
 
         ];

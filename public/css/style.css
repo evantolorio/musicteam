@@ -48,3 +48,10 @@ nav{
     padding: 1rem;
     background-color: #01458e;
 }
+
+.info{
+    border-left: 5px solid #009688;
+    background-color: #e7f5f4;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}

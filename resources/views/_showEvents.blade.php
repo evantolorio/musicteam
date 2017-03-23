@@ -2,6 +2,10 @@
     <h4>
         <b>CURRENT SETLIST</b>
     </h4>
+    <blockquote class="info left-align" style="margin-left:1rem;">
+        Resources for new songs can be seen here:
+        <a href="https://drive.google.com/drive/folders/0B9ktLjQHBcExVHhBZ29GNUtRTUE" target="_blank">Click here.</a>
+    </blockquote>
 </div>
 
 <div id="first-two-events-container" class="col s12">
