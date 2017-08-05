@@ -47,10 +47,10 @@ class SongController extends Controller
             $event->parsedDate = $parsedName[1];
         }
 
-        $firstThreeEvents = $events->take(3);
-        $events = $events->slice(3);
+        $currentEvents = $events->take(4);
+        $events = $events->slice(4);
 
-        return view('songs',['canEdit' => false, 'songs' => $songs, 'events' => $events, 'firstThreeEvents' => $firstThreeEvents]);
+        return view('songs',['canEdit' => false, 'songs' => $songs, 'events' => $events, 'currentEvents' => $currentEvents]);
     }
 
     /**

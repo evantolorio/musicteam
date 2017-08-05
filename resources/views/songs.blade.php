@@ -158,7 +158,11 @@
                                 >
                                     music_note
                                 </i>
-                                <span class="title" style="font-weight:500">[@{{ song.id }}] @{{ song.title }}</span>
+                                <span class="title" style="font-weight:500">
+                                    @if ($canEdit)
+                                        [@{{ song.id }}]
+                                    @endif
+                                    @{{ song.title }}</span>
                                 <p>
                                     @{{ song.artist }} <br>
                                     Original: @{{ song.original_key }} | Male: @{{ song.male_key }} | Female: @{{ song.female_key }}

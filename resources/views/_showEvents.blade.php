@@ -9,7 +9,7 @@
 </div>
 
 <div id="first-two-events-container" class="col s12">
-    @foreach ($firstThreeEvents as $event)
+    @foreach ($currentEvents as $event)
         <div class="col s6" style="margin-top: 1rem;">
             <h6>
                 <span> {{ $event->parsedName }} </span> <br>
@@ -79,11 +79,6 @@
             </table>
         </div>
     @endforeach
-        <div class="col s6" style="margin-top: 1rem;">
-            <h6>
-                Other Events
-            </h6>
-        </div>
 </div>
 
 <div class="col s12 center-align" style="margin-top:2rem;">
