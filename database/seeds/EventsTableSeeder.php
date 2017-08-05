@@ -14,50 +14,45 @@ class EventsTableSeeder extends Seeder
     {
         $events = [
             [
-                'name' => 'Sunday 9AM ; March 26, 2017',
-                'songs' => [7, 28, 20]
+                'name' => 'Week 6: Sunday 9AM ; August 6, 2017',
+                'songs' => [5, 67, 4]
             ],
             [
-                'name' => 'Sunday 11AM | 5PM | 7PM ; March 26, 2017',
-                'songs' => [7, 11, 20]
+                'name' => 'Week 6: Sunday 11AM | 4PM | 6PM ; August 6, 2017',
+                'songs' => [5, 76, 4]
             ],
             [
-                'name' => 'Youth ; March 23, 2017',
-                'songs' => [21, 22, 29, 9]
+                'name' => 'Week 6: Youth ; August 10, 2017',
+                'songs' => [57, 13, 74, 4]
             ],
             [
-                'name' => 'Youth ; March 30, 2017',
-                'songs' => [21, 59, 60, 46]
+                'name' => 'Other Events ; ',
+                'songs' => []
             ],
             [
-                'name' => 'Sunday 9AM ; April 2, 2017',
-                'songs' => [24, 56, 25]
+                'name' => 'Week 7: Sunday 9AM ; August 13, 2017',
+                'songs' => [7, 75, 77]
             ],
             [
-                'name' => 'Sunday 11AM | 5PM | 7PM ; April 2, 2017',
-                'songs' => [24, 54, 25]
+                'name' => 'Week 7: Sunday 11AM | 4PM | 6PM ; August 13, 2017',
+                'songs' => [7, 76, 77]
             ],
             [
-                'name' => 'Youth ; April 6, 2017',
-                'songs' => [19, 59, 47, 36]
+                'name' => 'Week 7: Youth ; August 17, 2017',
+                'songs' => [66, 32, 74, 20]
             ],
             [
-                'name' => 'Sunday 9AM ; April 9, 2017',
-                'songs' => [13, 56, 9]
+                'name' => 'Week 8: Sunday 9AM ; August 20, 2017',
+                'songs' => [7, 75, 72]
             ],
             [
-                'name' => 'Sunday 11AM | 5PM | 7PM ; April 9, 2017',
-                'songs' => [13, 54, 9]
+                'name' => 'Week 8: Sunday 11AM | 4PM | 6PM ; August 20, 2017',
+                'songs' => [7, 76, 72]
             ],
             [
-                'name' => 'Sunday 9AM ; April 16, 2017',
-                'songs' => [55, 56, 25]
-            ],
-            [
-                'name' => 'Sunday 11AM | 5PM | 7PM ; April 16, 2017',
-                'songs' => [55, 54, 25]
+                'name' => 'Week 8: Youth ; August 24, 2017',
+                'songs' => [70, 19, 11, 72]
             ]
-
         ];
 
         foreach ($events as $event) {

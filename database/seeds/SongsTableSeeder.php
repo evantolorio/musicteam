@@ -24,8 +24,8 @@ class SongsTableSeeder extends Seeder
                 'title' => 'Nothing is Impossible',
                 'artist' => 'Planetshakers',
                 'original_key' => 'C',
-                'male_key' => 'C',
-                'female_key' => 'E'
+                'male_key' => 'B',
+                'female_key' => 'C'
             ],
             [
                 'title' => 'Cornerstone',
@@ -46,14 +46,14 @@ class SongsTableSeeder extends Seeder
                 'artist' => 'Victory Worship',
                 'original_key' => 'C',
                 'male_key' => 'C',
-                'female_key' => 'E'
+                'female_key' => 'D'
             ],
             [
                 'title' => 'God Is Able',
                 'artist' => 'Hillsong',
                 'original_key' => 'B',
                 'male_key' => 'A',
-                'female_key' => 'C'
+                'female_key' => 'D'
             ],
             [
                 'title' => 'O What a Savior',
@@ -81,7 +81,7 @@ class SongsTableSeeder extends Seeder
                 'artist' => 'Bethel Music',
                 'original_key' => 'B',
                 'male_key' => 'B',
-                'female_key' => 'E'
+                'female_key' => 'D'
             ],
             [
                 'title' => 'Radical Love',
@@ -115,14 +115,14 @@ class SongsTableSeeder extends Seeder
                 'title' => 'Higher Wider Deeper',
                 'artist' => 'Citipointe',
                 'original_key' => 'E',
-                'male_key' => 'E',
-                'female_key' => 'D'
+                'male_key' => 'D',
+                'female_key' => 'E'
             ],
             [
                 'title' => 'Hands To The Sky',
                 'artist' => 'Mid-Cities Worship',
                 'original_key' => 'Bb',
-                'male_key' => 'D',
+                'male_key' => 'E',
                 'female_key' => 'G'
             ],
             [
@@ -135,7 +135,7 @@ class SongsTableSeeder extends Seeder
             [
                 'title' => 'God\'s Great Dance Floor',
                 'artist' => 'Chris Tomlin',
-                'original_key' => '--',
+                'original_key' => 'Bb',
                 'male_key' => 'A',
                 'female_key' => 'B'
             ],
@@ -164,14 +164,14 @@ class SongsTableSeeder extends Seeder
                 'title' => 'Praise You Lord',
                 'artist' => 'Planetshakers',
                 'original_key' => 'E',
-                'male_key' => 'E',
+                'male_key' => 'D',
                 'female_key' => 'E'
             ],
             [
                 'title' => 'To My Knees',
                 'artist' => 'Hillsong Young & Free',
                 'original_key' => 'C',
-                'male_key' => 'C',
+                'male_key' => 'B',
                 'female_key' => 'C'
             ],
             [
@@ -185,7 +185,7 @@ class SongsTableSeeder extends Seeder
                 'title' => 'Overcome the World',
                 'artist' => 'Victory Worship',
                 'original_key' => 'A',
-                'male_key' => 'D',
+                'male_key' => 'E',
                 'female_key' => 'A'
             ],
             [
@@ -200,13 +200,13 @@ class SongsTableSeeder extends Seeder
                 'artist' => 'Hillsong United',
                 'original_key' => 'C',
                 'male_key' => 'C',
-                'female_key' => 'E'
+                'female_key' => 'D'
             ],
             [
                 'title' => 'Iniibig Kita',
                 'artist' => 'Wildfire',
                 'original_key' => 'E',
-                'male_key' => 'D',
+                'male_key' => 'C',
                 'female_key' => 'E'
             ],
             [
@@ -219,29 +219,29 @@ class SongsTableSeeder extends Seeder
             [
                 'title' => 'Great God',
                 'artist' => 'Victory Worship',
-                'original_key' => 'G',
-                'male_key' => 'D',
+                'original_key' => 'B',
+                'male_key' => 'B',
                 'female_key' => 'E'
             ],
             [
                 'title' => 'Pursue',
                 'artist' => 'Hillsong Young & Free',
                 'original_key' => 'G',
-                'male_key' => 'G',
-                'female_key' => 'B'
+                'male_key' => 'E',
+                'female_key' => 'G'
             ],
             [
                 'title' => 'Lost Without You',
                 'artist' => 'Victory Worship',
                 'original_key' => 'F',
-                'male_key' => 'G',
-                'female_key' => 'A'
+                'male_key' => 'E',
+                'female_key' => 'G'
             ],
             [
                 'title' => 'Always',
                 'artist' => 'Kristian Stanfill',
                 'original_key' => 'B',
-                'male_key' => 'C',
+                'male_key' => 'B',
                 'female_key' => 'E'
             ],
             [
@@ -249,7 +249,7 @@ class SongsTableSeeder extends Seeder
                 'artist' => 'Hillsong',
                 'original_key' => 'B',
                 'male_key' => 'B',
-                'female_key' => 'E'
+                'female_key' => 'D'
             ],
             [
                 'title' => 'You Have My Heart',
@@ -290,14 +290,14 @@ class SongsTableSeeder extends Seeder
                 'title' => 'We Stand In Awe',
                 'artist' => 'Every Nation Music',
                 'original_key' => 'Db',
-                'male_key' => 'D',
-                'female_key' => 'E'
+                'male_key' => 'A',
+                'female_key' => 'D'
             ],
             [
                 'title' => 'Unending Love',
                 'artist' => 'Hillsong',
                 'original_key' => 'D',
-                'male_key' => 'D',
+                'male_key' => 'A',
                 'female_key' => 'D'
             ],
             [
@@ -311,7 +311,7 @@ class SongsTableSeeder extends Seeder
                 'title' => 'All I\'m After',
                 'artist' => 'New Life Worship',
                 'original_key' => 'B',
-                'male_key' => 'E',
+                'male_key' => 'G',
                 'female_key' => 'B'
             ],
             [
@@ -332,21 +332,21 @@ class SongsTableSeeder extends Seeder
                 'title' => 'Lead Me Onward',
                 'artist' => 'Every Nation Music',
                 'original_key' => 'Eb',
-                'male_key' => 'D',
+                'male_key' => 'C',
                 'female_key' => 'E'
             ],
             [
                 'title' => 'With Us',
                 'artist' => 'Hillsong',
                 'original_key' => 'D',
-                'male_key' => 'D',
+                'male_key' => 'C',
                 'female_key' => 'D'
             ],
             [
                 'title' => 'Oceans',
                 'artist' => 'Hillsong',
                 'original_key' => 'D',
-                'male_key' => 'B',
+                'male_key' => 'A',
                 'female_key' => 'D'
             ],
             [
@@ -354,7 +354,7 @@ class SongsTableSeeder extends Seeder
                 'artist' => 'Hillsong',
                 'original_key' => 'A',
                 'male_key' => 'A',
-                'female_key' => 'A'
+                'female_key' => 'C'
             ],
             [
                 'title' => 'Blessing and Honor',
@@ -367,15 +367,15 @@ class SongsTableSeeder extends Seeder
                 'title' => 'Pour Us Out',
                 'artist' => 'Victory Worship',
                 'original_key' => 'D',
-                'male_key' => 'B',
+                'male_key' => 'A',
                 'female_key' => 'D'
             ],
             [
                 'title' => 'Lay It Down',
                 'artist' => 'Victory Worship',
                 'original_key' => 'B',
-                'male_key' => 'B',
-                'female_key' => 'D'
+                'male_key' => 'G',
+                'female_key' => 'B'
             ],
             [
                 'title' => 'Your Love Is Greater',
@@ -396,12 +396,12 @@ class SongsTableSeeder extends Seeder
                 'artist' => 'Every Nation',
                 'original_key' => 'B',
                 'male_key' => 'B',
-                'female_key' => 'D'
+                'female_key' => 'E'
             ],
             [
                 'title' => 'Awit ng Bayan',
                 'artist' => 'Wildfire',
-                'original_key' => 'Bb',
+                'original_key' => 'B',
                 'male_key' => 'B',
                 'female_key' => 'D'
             ],
@@ -423,16 +423,140 @@ class SongsTableSeeder extends Seeder
                 'title' => 'This is Who We Are',
                 'artist' => 'Victory Worship',
                 'original_key' => 'C',
-                'male_key' => 'B',
-                'female_key' => 'C'
+                'male_key' => 'G',
+                'female_key' => 'B'
             ],
             [
                 'title' => 'Strength of My Life',
                 'artist' => 'Planetshakers',
                 'original_key' => 'C',
+                'male_key' => 'B',
+                'female_key' => 'D'
+            ],
+            [
+                'title' => 'This is Living',
+                'artist' => 'Hillsong Young & Free',
+                'original_key' => 'E',
+                'male_key' => 'E',
+                'female_key' => 'G'
+            ],
+            [
+                'title' => 'The Beat',
+                'artist' => 'Every Nation Music',
+                'original_key' => 'G',
+                'male_key' => 'C',
+                'female_key' => 'E'
+            ],
+            [
+                'title' => 'I\'ll Never Walk Alone',
+                'artist' => 'Every Nation Music',
+                'original_key' => 'C',
                 'male_key' => 'C',
                 'female_key' => 'D'
+            ],
+            [
+                'title' => 'Don\'t Let Me Wander',
+                'artist' => 'Every Nation Music',
+                'original_key' => 'C',
+                'male_key' => 'C',
+                'female_key' => 'D'
+            ],
+            [
+                'title' => 'Set A Fire',
+                'artist' => 'Jesus Culture',
+                'original_key' => 'C',
+                'male_key' => 'C',
+                'female_key' => 'D'
+            ],
+            [
+                'title' => 'Turn It Up',
+                'artist' => 'Planetshakers',
+                'original_key' => 'E',
+                'male_key' => 'D',
+                'female_key' => 'E'
+            ],
+            [
+                'title' => 'Salita Mo',
+                'artist' => 'Faithmusic',
+                'original_key' => 'F#',
+                'male_key' => 'B',
+                'female_key' => 'E'
+            ],
+            [
+                'title' => 'Jesus At The Center',
+                'artist' => 'Israel Houghton and New Breed',
+                'original_key' => 'A',
+                'male_key' => 'G',
+                'female_key' => 'A'
+            ],
+            [
+                'title' => 'Lord of All',
+                'artist' => 'Victory Worship',
+                'original_key' => 'G',
+                'male_key' => 'C',
+                'female_key' => 'E'
+            ],
+            [
+                'title' => 'Alive Again',
+                'artist' => 'Planetshakers',
+                'original_key' => 'C#',
+                'male_key' => 'D',
+                'female_key' => 'D'
+            ],
+            [
+                'title' => 'This is Our Time',
+                'artist' => 'Planetshakers',
+                'original_key' => 'Eb',
+                'male_key' => 'D',
+                'female_key' => 'E'
+            ],
+            [
+                'title' => 'Hosanna',
+                'artist' => 'Hillsong',
+                'original_key' => 'E',
+                'male_key' => 'A',
+                'female_key' => 'E'
+            ],
+            [
+                'title' => 'One Thing',
+                'artist' => 'Hillsong',
+                'original_key' => 'C',
+                'male_key' => 'B',
+                'female_key' => 'D'
+            ],
+            [
+                'title' => 'Grace to Grace',
+                'artist' => 'Hillsong',
+                'original_key' => 'F',
+                'male_key' => 'B',
+                'female_key' => 'D'
+            ],
+            [
+                'title' => 'Awit ng Pagsamba',
+                'artist' => 'Musikatha',
+                'original_key' => 'D',
+                'male_key' => 'A',
+                'female_key' => 'C'
+            ],
+            [
+                'title' => 'What a Beautiful Name',
+                'artist' => 'Hillsong',
+                'original_key' => 'D',
+                'male_key' => 'B',
+                'female_key' => 'D'
+            ],
+            [
+                'title' => 'Ruler of Nations',
+                'artist' => 'Victory Worship',
+                'original_key' => 'E',
+                'male_key' => 'C',
+                'female_key' => 'E'
             ]
+
+
+
+
+
 
         ];
 
