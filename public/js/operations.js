@@ -64,7 +64,7 @@ var vm = new Vue({
 
 			return _.sortBy(songs, ['title']);
 		}
-		
+
 	},
 	methods:{
 		searchSongById: function(id){
@@ -277,11 +277,15 @@ var vm = new Vue({
                 function(response){
 
 					var eventId = response.body;
+					var eventName = this.addEventData.name;
+					var nameArray = this.addEventData.name.split(';');
 
 					// Push data to local Vue data storage
 					this.events.push({
 						'id': eventId,
-						'name': this.addEventData.name,
+						'name': eventName,
+						'parsedName': nameArray[0],
+						'parsedDate': nameArray[1],
 						'songs': []
 					});
 
@@ -296,6 +300,9 @@ var vm = new Vue({
 						// For enabling the button
 						$(event.target).removeClass('disabled');
 						event.target.innerHTML = 'Add';
+
+						// Initialize dynamically created dropdown
+						$('.dropdown-button').dropdown({});
 					});
 
                 },
