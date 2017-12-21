@@ -25,10 +25,10 @@ class EventsTableSeeder extends Seeder
                 'name' => 'Youth ; ',
                 'songs' => []
             ],
-	    [
-		'name' => 'Others ; ',
-		'songs' => []
-	    ],
+    	    [
+        		'name' => 'Others ; ',
+        		'songs' => []
+    	    ],
             [
                 'name' => 'Week 2 (Promises Fulfilled): Sunday 9AM ; December 10, 2017',
                 'songs' => [90, 75, 3]

@@ -58,6 +58,7 @@ class SongController extends Controller
      * Add Song
      * AJAX
      *
+     * @param   Request $request
      * @return  String
      */
     public function addSong(Request $request)
@@ -80,6 +81,7 @@ class SongController extends Controller
      * Edit Song
      * AJAX
      *
+     * @param   Request $request
      * @return  String
      */
     public function editSong(Request $request)
@@ -101,6 +103,7 @@ class SongController extends Controller
      * Delete Song
      * AJAX
      *
+     * @param   Request $request
      * @return  String
      */
     public function deleteSong(Request $request)

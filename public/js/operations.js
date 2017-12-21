@@ -30,7 +30,7 @@ var vm = new Vue({
 			index: 0,
 			eventId: 0,
 			eventName: '',
-			songs: []
+			songs: ''
 		},
 		editEventSongsData:{
 
@@ -428,7 +428,60 @@ var vm = new Vue({
 		},
 
 		toggleAddEventSongs: function(id){
-			console.log(id);
+			var eventIndex = this.searchEventById(id);
+
+			this.addEventSongsData.index = eventIndex;
+			this.addEventSongsData.eventId = this.events[eventIndex].id;
+			this.addEventSongsData.name = this.events[eventIndex].name;
+
+			// BUG: On Event name not showing up right away
+			// upon opening of modal
+			$('#add-event-songs-modal').modal('open');
+		},
+
+		addEventSongs: function(event){
+			// For disabling the button
+			$(event.target).addClass('disabled');
+			event.target.innerHTML = 'Adding Event Songs...';
+
+			// Do AJAX
+            this.$http.post(
+                '/event-songs',
+                {
+                    _token: $('meta[name="csrf-token"]').attr('content'),
+                    eventId: this.addEventSongsData.eventId,
+					eventSongs: this.addEventSongsData.songs
+                }
+            ).then(
+                function(response){
+
+					var eventIndex = this.addEventSongsData.index;
+
+					// Push data to local Vue data storage
+					this.events[eventIndex].songs = response.body;
+
+					this.$nextTick(function(){
+						Materialize.toast('Songs added to' + this.addEventSongsData.name, 2000, 'green lighten-1');
+
+						$('#add-event-songs-modal').modal('close');
+
+						this.addEventSongsData.songs = '';
+						$('label.active').removeClass('active');
+
+						// For enabling the button
+						$(event.target).removeClass('disabled');
+						event.target.innerHTML = 'Add';
+
+						// Initialize dynamically created dropdown
+						$('.dropdown-button').dropdown({});
+					});
+
+                },
+                function(response){
+					Materialize.toast(response.statusText, 2000, 'red lighten-1');
+                    console.log(response.statusText);
+                }
+            );
 		}
 
 	}

@@ -34,7 +34,7 @@
                     {{-- Edit Event songs --}}
                     <a href="#!"
                         style="margin-right:1rem;"
-                        @click.prevent="toggleAddEventSongs(event.id)"
+                        @click.prevent="toggleEditEventSongs(event.id)"
                     >
                         <i class="material-icons teal-text">edit</i>
                     </a>
@@ -154,6 +154,28 @@
             @click.prevent="deleteEvent($event)"
         >
             Yes
+        </a>
+    </div>
+</div>
+
+{{-- Add Event Songs modal --}}
+<div id="add-event-songs-modal" class="modal">
+    <div class="modal-content row">
+        <h4>Add Songs to @{{ addEventSongsData.name }} </h4>
+        <blockquote class="info left-align">
+            Input should be numbers separated by commas. Ex: 1, 2, 3
+        </blockquote>
+        <div class="input-field col s12">
+            <input id="event-songs-ids" type="text" v-model="addEventSongsData.songs">
+            <label for="event-songs-ids">Song IDs</label>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a class="modal-action modal-close waves-effect waves-green btn-flat ">Close</a>
+        <a class="modal-action waves-effect waves-green btn-flat edit-product-button"
+            @click.prevent="addEventSongs($event)"
+        >
+            Add
         </a>
     </div>
 </div>
