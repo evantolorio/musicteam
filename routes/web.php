@@ -27,3 +27,4 @@ Route::delete('/event', 'EventController@deleteEvent');
 
 // EventSongs-related
 Route::post('/event-songs', 'EventController@addEventSongs');
+Route::patch('/event-songs', 'EventController@editEventSongs');

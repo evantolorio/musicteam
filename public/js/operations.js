@@ -33,10 +33,10 @@ var vm = new Vue({
 			songs: ''
 		},
 		editEventSongsData:{
-
-		},
-		removeEventSongsData:{
-
+			index: 0,
+			eventId: 0,
+			eventName: '',
+			songs: ''
 		},
 		addSongData:{
 			title: '',
@@ -433,9 +433,8 @@ var vm = new Vue({
 			this.addEventSongsData.index = eventIndex;
 			this.addEventSongsData.eventId = this.events[eventIndex].id;
 			this.addEventSongsData.name = this.events[eventIndex].name;
+			this.addEventSongsData.songs = ' ';
 
-			// BUG: On Event name not showing up right away
-			// upon opening of modal
 			$('#add-event-songs-modal').modal('open');
 		},
 
@@ -461,7 +460,7 @@ var vm = new Vue({
 					this.events[eventIndex].songs = response.body;
 
 					this.$nextTick(function(){
-						Materialize.toast('Songs added to' + this.addEventSongsData.name, 2000, 'green lighten-1');
+						Materialize.toast('Songs added to ' + this.addEventSongsData.name, 2000, 'green lighten-1');
 
 						$('#add-event-songs-modal').modal('close');
 
@@ -476,6 +475,73 @@ var vm = new Vue({
 						$('.dropdown-button').dropdown({});
 					});
 
+                },
+                function(response){
+					Materialize.toast(response.statusText, 2000, 'red lighten-1');
+                    console.log(response.statusText);
+                }
+            );
+		},
+
+		toggleEditEventSongs: function(id){
+			var eventIndex = this.searchEventById(id);
+
+			this.editEventSongsData.index = eventIndex;
+			this.editEventSongsData.eventId = this.events[eventIndex].id;
+			this.editEventSongsData.name = this.events[eventIndex].name;
+			this.editEventSongsData.songs = (function(vm){
+				// This function produces a string of song ids
+				var concatenatedIds = '';
+
+				vm.events[eventIndex].songs.forEach(function(element, index){
+
+					if(index === vm.events[eventIndex].songs.length-1) concatenatedIds += element.id;
+					else concatenatedIds += element.id + ", ";
+				});
+
+				return concatenatedIds;
+			})(this);
+
+			$("label[for=edit-event-song-ids]").addClass('active');
+			$('#edit-event-songs-modal').modal('open');
+		},
+
+		editEventSongs: function(event){
+			// For disabling the button
+			$(event.target).addClass('disabled');
+			event.target.innerHTML = 'Editing Event Songs...';
+
+			// Do AJAX
+            this.$http.patch(
+                '/event-songs',
+                {
+                    _token: $('meta[name="csrf-token"]').attr('content'),
+					eventId: this.editEventSongsData.eventId,
+					eventSongs: this.editEventSongsData.songs
+                }
+            ).then(
+                function(response){
+
+					var eventIndex = this.editEventSongsData.index;
+
+					// Push data to local Vue data storage
+					this.events[eventIndex].songs = response.body;
+
+					this.$nextTick(function(){
+						Materialize.toast('Songs edited on ' + this.editEventSongsData.name, 2000, 'green lighten-1');
+
+						$('#edit-event-songs-modal').modal('close');
+
+						this.editEventSongsData.songs = '';
+						$('label.active').removeClass('active');
+
+						// For enabling the button
+						$(event.target).removeClass('disabled');
+						event.target.innerHTML = 'Edit';
+
+						// Initialize dynamically created dropdown
+						$('.dropdown-button').dropdown({});
+					});
                 },
                 function(response){
 					Materialize.toast(response.statusText, 2000, 'red lighten-1');

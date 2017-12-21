@@ -84,4 +84,31 @@ class EventController extends Controller
             return $event->songs;
         }
     }
+
+    /**
+     * Edit Songs of specific Event
+     *
+     * @param   Request $request
+     * @return  JSON
+     */
+    public function editEventSongs(Request $request)
+    {
+        if($request->ajax()){
+            $event = Event::find($request->eventId);
+            // This is an expensive operation of which
+            // should be subject to change to
+            // further improve performance
+            $event->songs()->detach();
+
+            $songsArray = explode(",", $request->eventSongs);
+
+            $i = 1;
+            foreach ($songsArray as $song) {
+                $event->songs()->attach($song, ['order' => $i]);
+                $i++;
+            }
+
+            return $event->songs;
+        }
+    }
 }

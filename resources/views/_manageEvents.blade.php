@@ -166,8 +166,8 @@
             Input should be numbers separated by commas. Ex: 1, 2, 3
         </blockquote>
         <div class="input-field col s12">
-            <input id="event-songs-ids" type="text" v-model="addEventSongsData.songs">
-            <label for="event-songs-ids">Song IDs</label>
+            <input id="event-song-ids" type="text" v-model="addEventSongsData.songs">
+            <label for="event-song-ids">Song IDs</label>
         </div>
     </div>
     <div class="modal-footer">
@@ -176,6 +176,28 @@
             @click.prevent="addEventSongs($event)"
         >
             Add
+        </a>
+    </div>
+</div>
+
+{{-- Edit Event Songs modal --}}
+<div id="edit-event-songs-modal" class="modal">
+    <div class="modal-content row">
+        <h4>Edit Songs of @{{ editEventSongsData.name }} </h4>
+        <blockquote class="info left-align">
+            Input should be numbers separated by commas. Ex: 1, 2, 3
+        </blockquote>
+        <div class="input-field col s12">
+            <input id="edit-event-song-ids" type="text" v-model="editEventSongsData.songs">
+            <label for="edit-event-song-ids">Song IDs</label>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a class="modal-action modal-close waves-effect waves-green btn-flat ">Close</a>
+        <a class="modal-action waves-effect waves-green btn-flat edit-product-button"
+            @click.prevent="editEventSongs($event)"
+        >
+            Edit
         </a>
     </div>
 </div>
