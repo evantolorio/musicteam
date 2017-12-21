@@ -14,8 +14,7 @@ var vm = new Vue({
 		songs: rawSongs,
 		showAddSong: false,
 		addEventData:{
-			name: '',
-			songs: []
+			name: ''
 		},
 		editEventData:{
 			index: 0,
@@ -26,6 +25,18 @@ var vm = new Vue({
 			index: 0,
 			eventId: 0,
 			name: ''
+		},
+		addEventSongsData:{
+			index: 0,
+			eventId: 0,
+			eventName: '',
+			songs: []
+		},
+		editEventSongsData:{
+
+		},
+		removeEventSongsData:{
+
 		},
 		addSongData:{
 			title: '',
@@ -286,6 +297,7 @@ var vm = new Vue({
 						'name': eventName,
 						'parsedName': nameArray[0],
 						'parsedDate': nameArray[1],
+						'showAddEventSongs': false,
 						'songs': []
 					});
 
@@ -343,8 +355,11 @@ var vm = new Vue({
 
 					// Update local Vue data storage
 					var index = this.editEventData.index;
+					var tokenizedName = this.editEventData.name.split(';');
 
 					this.events[index].name = this.editEventData.name;
+					this.events[index].parsedName = tokenizedName[0];
+					this.events[index].parsedDate = tokenizedName[1];
 
 					this.$nextTick(function(){
 						$('#edit-event-modal').modal('close');
@@ -410,6 +425,10 @@ var vm = new Vue({
                     console.log(response.statusText);
                 }
             );
+		},
+
+		toggleAddEventSongs: function(id){
+			console.log(id);
 		}
 
 	}

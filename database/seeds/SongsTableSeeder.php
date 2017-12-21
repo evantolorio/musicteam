@@ -74,7 +74,7 @@ class SongsTableSeeder extends Seeder
                 'artist' => 'Hillsong',
                 'original_key' => 'G',
                 'male_key' => 'B',
-                'female_key' => 'G'
+                'female_key' => 'E'
             ],
             [
                 'title' => 'One Thing Remains',
@@ -543,7 +543,7 @@ class SongsTableSeeder extends Seeder
                 'artist' => 'Hillsong',
                 'original_key' => 'D',
                 'male_key' => 'B',
-                'female_key' => 'D'
+                'female_key' => 'C'
             ],
             [
                 'title' => 'Ruler of Nations',
@@ -551,11 +551,112 @@ class SongsTableSeeder extends Seeder
                 'original_key' => 'E',
                 'male_key' => 'C',
                 'female_key' => 'E'
+            ],
+            [
+                'title' => 'Good Good Father',
+                'artist' => 'Chris Tomlin',
+                'original_key' => 'A',
+                'male_key' => 'A',
+                'female_key' => 'C'
+            ],
+            [
+                'title' => 'Katapatan Mo O Dios',
+                'artist' => 'Musikatha',
+                'original_key' => 'D/G',
+                'male_key' => 'C/F',
+                'female_key' => 'D/G'
+            ],
+            [
+                'title' => 'Our God is Love',
+                'artist' => 'Hillsong',
+                'original_key' => 'F',
+                'male_key' => 'E',
+                'female_key' => 'G'
+            ],
+            [
+                'title' => 'In Control',
+                'artist' => 'Hillsong',
+                'original_key' => 'A',
+                'male_key' => 'G',
+                'female_key' => 'A'
+            ],
+            [
+                'title' => 'Beautiful Love',
+                'artist' => 'Victory Worship',
+                'original_key' => 'F#',
+                'male_key' => 'B',
+                'female_key' => 'D'
+            ],
+            [
+                'title' => 'For Your Purpose',
+                'artist' => 'Victory Worship',
+                'original_key' => 'Eb',
+                'male_key' => 'E',
+                'female_key' => 'G'
+            ],
+            [
+                'title' => 'We Will Go',
+                'artist' => 'Victory Worship',
+                'original_key' => 'Eb',
+                'male_key' => 'E',
+                'female_key' => 'G'
+            ],
+            [
+                'title' => '10,000 Reasons',
+                'artist' => 'Matt Redman',
+                'original_key' => 'C',
+                'male_key' => 'C',
+                'female_key' => 'D'
+            ],
+            [
+                'title' => 'Scandal of Grace (Of Dirt and Grace)',
+                'artist' => 'Hillsong United',
+                'original_key' => 'C',
+                'male_key' => 'C',
+                'female_key' => 'D'
+            ],
+            [
+                'title' => 'Christ is Enough (Glorious Ruins)',
+                'artist' => 'Hillsong',
+                'original_key' => 'B',
+                'male_key' => 'A' ,
+                'female_key' => 'D'
+            ],
+            [
+                'title' => 'Relentless (Let Hope Rise)',
+                'artist' => 'Hillsong',
+                'original_key' => 'D',
+                'male_key' => 'D' ,
+                'female_key' => 'E'
+            ],
+            [
+                'title' => 'How Great Is Our God',
+                'artist' => 'Chris Tomlin',
+                'original_key' => 'G',
+                'male_key' => 'G' ,
+                'female_key' => 'A'
+            ],
+            [
+                'title' => 'Joy To The World (Peace Project)',
+                'artist' => 'Hillsong',
+                'original_key' => 'F',
+                'male_key' => 'E' ,
+                'female_key' => 'G'
+            ],
+            [
+                'title' => 'When I Think Upon Christmas (Peace Project)',
+                'artist' => 'Hillsong',
+                'original_key' => 'C',
+                'male_key' => 'B' ,
+                'female_key' => 'C'
+            ],
+            [
+                'title' => 'Hark (Peace Project)',
+                'artist' => 'Hillsong',
+                'original_key' => 'E',
+                'male_key' => 'C' ,
+                'female_key' => 'E'
             ]
-
-
-
-
 
 
         ];

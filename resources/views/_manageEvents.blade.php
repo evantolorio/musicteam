@@ -23,13 +23,29 @@
             </div>
             <div class="collapsible-body row">
                 <div class="col s12 right-align">
+                    {{-- Add Event songs --}}
+                    <a href="#!"
+                        style="margin-right:1rem;"
+                        @click.prevent="toggleAddEventSongs(event.id)"
+                    >
+                        <i class="material-icons teal-text">add</i>
+                    </a>
+
+                    {{-- Edit Event songs --}}
+                    <a href="#!"
+                        style="margin-right:1rem;"
+                        @click.prevent="toggleAddEventSongs(event.id)"
+                    >
+                        <i class="material-icons teal-text">edit</i>
+                    </a>
+
                     <!-- Dropdown Trigger -->
                     <a class='dropdown-button right' href='#!' data-beloworigin="true" data-alignment="right" :data-activates="'event-options-' + event.id">
                         <i class="material-icons grey-text">settings</i>
                     </a>
 
                     <!-- Dropdown Structure -->
-                    <ul :id="'event-options-' + event.id" class='dropdown-content' style="width:20rem;">
+                    <ul :id="'event-options-' + event.id" class='dropdown-content' style="width:12rem;">
                         <li>
                             <a href="#!" @click.prevent="toggleEditEvent(event.id)">Edit Event</a>
                         </li>
@@ -39,6 +55,7 @@
                     </ul>
                 </div>
                 <div class="col s8 offset-s2">
+                    {{-- Event lists --}}
                     <table class="bordered">
                         <thead>
                             <tr>
@@ -85,6 +102,7 @@
     </ul>
 </div>
 
+{{-- Add Event modal --}}
 <div id="add-event-modal" class="modal">
     <div class="modal-content row">
         <h4>Add Event</h4>
@@ -103,6 +121,7 @@
     </div>
 </div>
 
+{{-- Edit Event modal --}}
 <div id="edit-event-modal" class="modal">
     <div class="modal-content row">
         <h4>Edit @{{ editEventData.name }}</h4>
@@ -121,6 +140,7 @@
     </div>
 </div>
 
+{{-- Delete Event modal --}}
 <div id="delete-event-confirmation-modal" class="modal">
     <div class="modal-content">
         <h4>Remove Event Confirmation</h4>
