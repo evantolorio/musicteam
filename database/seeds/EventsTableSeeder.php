@@ -14,45 +14,41 @@ class EventsTableSeeder extends Seeder
     {
         $events = [
             [
-                'name' => 'Week 6: Sunday 9AM ; August 6, 2017',
-                'songs' => [5, 67, 4]
+                'name' => 'Week 1 (Promises Fulfilled): Sunday 9AM ; December 3, 2017',
+                'songs' => [55, 75, 89]
             ],
             [
-                'name' => 'Week 6: Sunday 11AM | 4PM | 6PM ; August 6, 2017',
-                'songs' => [5, 76, 4]
+                'name' => 'Week 1 (Promises Fulfilled): Sunday 11AM | 4PM | 6PM ; December 3, 2017',
+                'songs' => [55, 86, 89]
             ],
             [
-                'name' => 'Week 6: Youth ; August 10, 2017',
-                'songs' => [57, 13, 74, 4]
-            ],
-            [
-                'name' => 'Other Events ; ',
+                'name' => 'Youth ; ',
                 'songs' => []
             ],
+    	    [
+        		'name' => 'Others ; ',
+        		'songs' => []
+    	    ],
             [
-                'name' => 'Week 7: Sunday 9AM ; August 13, 2017',
-                'songs' => [7, 75, 77]
+                'name' => 'Week 2 (Promises Fulfilled): Sunday 9AM ; December 10, 2017',
+                'songs' => [90, 75, 3]
             ],
             [
-                'name' => 'Week 7: Sunday 11AM | 4PM | 6PM ; August 13, 2017',
-                'songs' => [7, 76, 77]
+                'name' => 'Week 2 (Promises Fulfilled): Sunday 11AM | 4PM | 6PM ; December 10, 2017',
+                'songs' => [90, 6, 3]
             ],
             [
-                'name' => 'Week 7: Youth ; August 17, 2017',
-                'songs' => [66, 32, 74, 20]
+                'name' => 'Week 3 (Promises Fulfilled): Sunday 9AM ; December 17, 2017',
+                'songs' => [90, 79, 53]
             ],
             [
-                'name' => 'Week 8: Sunday 9AM ; August 20, 2017',
-                'songs' => [7, 75, 72]
+                'name' => 'Week 3 (Promises Fulfilled): Sunday 11AM | 4PM | 6PM ; December 17, 2017',
+                'songs' => [90, 92, 53]
             ],
             [
-                'name' => 'Week 8: Sunday 11AM | 4PM | 6PM ; August 20, 2017',
-                'songs' => [7, 76, 72]
+                'name' => 'Week 4 (Promises Fulfilled): Sunday ; December 24, 2017',
+                'songs' => [90, 92, 91]
             ],
-            [
-                'name' => 'Week 8: Youth ; August 24, 2017',
-                'songs' => [70, 19, 11, 72]
-            ]
         ];
 
         foreach ($events as $event) {

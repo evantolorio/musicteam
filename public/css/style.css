@@ -37,7 +37,7 @@ nav{
 }
 
 .dropdown-content, .dropdown-content.active {
-    width: 10rem !important;
+    width: 12rem !important;
 }
 
 #setlist-container div > h6{

@@ -22,9 +22,10 @@ class SongController extends Controller
         $events = Event::with('songs')->get();
 
         foreach ($events as $event) {
-            $parsedName = explode(";", $event->name);
-            $event->parsedName = $parsedName[0];
-            $event->parsedDate = $parsedName[1];
+            $tokenizedName = explode(";", $event->name);
+            $event->parsedName = $tokenizedName[0];
+            $event->parsedDate = $tokenizedName[1];
+            $event->showAddEventSongs = false;
         }
 
         return view('songs',['canEdit' => true, 'songs' => $songs, 'events' => $events]);
@@ -42,9 +43,9 @@ class SongController extends Controller
         $events = Event::with('songs')->get();
 
         foreach ($events as $event) {
-            $parsedName = explode(";", $event->name);
-            $event->parsedName = $parsedName[0];
-            $event->parsedDate = $parsedName[1];
+            $tokenizedName = explode(";", $event->name);
+            $event->parsedName = $tokenizedName[0];
+            $event->parsedDate = $tokenizedName[1];
         }
 
         $currentEvents = $events->take(4);
@@ -57,6 +58,7 @@ class SongController extends Controller
      * Add Song
      * AJAX
      *
+     * @param   Request $request
      * @return  String
      */
     public function addSong(Request $request)
@@ -79,6 +81,7 @@ class SongController extends Controller
      * Edit Song
      * AJAX
      *
+     * @param   Request $request
      * @return  String
      */
     public function editSong(Request $request)
@@ -100,6 +103,7 @@ class SongController extends Controller
      * Delete Song
      * AJAX
      *
+     * @param   Request $request
      * @return  String
      */
     public function deleteSong(Request $request)

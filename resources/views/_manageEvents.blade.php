@@ -23,13 +23,29 @@
             </div>
             <div class="collapsible-body row">
                 <div class="col s12 right-align">
+                    {{-- Add Event songs --}}
+                    <a href="#!"
+                        style="margin-right:1rem;"
+                        @click.prevent="toggleAddEventSongs(event.id)"
+                    >
+                        <i class="material-icons teal-text">add</i>
+                    </a>
+
+                    {{-- Edit Event songs --}}
+                    <a href="#!"
+                        style="margin-right:1rem;"
+                        @click.prevent="toggleEditEventSongs(event.id)"
+                    >
+                        <i class="material-icons teal-text">edit</i>
+                    </a>
+
                     <!-- Dropdown Trigger -->
                     <a class='dropdown-button right' href='#!' data-beloworigin="true" data-alignment="right" :data-activates="'event-options-' + event.id">
                         <i class="material-icons grey-text">settings</i>
                     </a>
 
                     <!-- Dropdown Structure -->
-                    <ul :id="'event-options-' + event.id" class='dropdown-content' style="width:20rem;">
+                    <ul :id="'event-options-' + event.id" class='dropdown-content' style="width:12rem;">
                         <li>
                             <a href="#!" @click.prevent="toggleEditEvent(event.id)">Edit Event</a>
                         </li>
@@ -39,6 +55,7 @@
                     </ul>
                 </div>
                 <div class="col s8 offset-s2">
+                    {{-- Event lists --}}
                     <table class="bordered">
                         <thead>
                             <tr>
@@ -85,6 +102,7 @@
     </ul>
 </div>
 
+{{-- Add Event modal --}}
 <div id="add-event-modal" class="modal">
     <div class="modal-content row">
         <h4>Add Event</h4>
@@ -103,6 +121,7 @@
     </div>
 </div>
 
+{{-- Edit Event modal --}}
 <div id="edit-event-modal" class="modal">
     <div class="modal-content row">
         <h4>Edit @{{ editEventData.name }}</h4>
@@ -121,6 +140,7 @@
     </div>
 </div>
 
+{{-- Delete Event modal --}}
 <div id="delete-event-confirmation-modal" class="modal">
     <div class="modal-content">
         <h4>Remove Event Confirmation</h4>
@@ -134,6 +154,50 @@
             @click.prevent="deleteEvent($event)"
         >
             Yes
+        </a>
+    </div>
+</div>
+
+{{-- Add Event Songs modal --}}
+<div id="add-event-songs-modal" class="modal">
+    <div class="modal-content row">
+        <h4>Add Songs to @{{ addEventSongsData.name }} </h4>
+        <blockquote class="info left-align">
+            Input should be numbers separated by commas. Ex: 1, 2, 3
+        </blockquote>
+        <div class="input-field col s12">
+            <input id="event-song-ids" type="text" v-model="addEventSongsData.songs">
+            <label for="event-song-ids">Song IDs</label>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a class="modal-action modal-close waves-effect waves-green btn-flat ">Close</a>
+        <a class="modal-action waves-effect waves-green btn-flat edit-product-button"
+            @click.prevent="addEventSongs($event)"
+        >
+            Add
+        </a>
+    </div>
+</div>
+
+{{-- Edit Event Songs modal --}}
+<div id="edit-event-songs-modal" class="modal">
+    <div class="modal-content row">
+        <h4>Edit Songs of @{{ editEventSongsData.name }} </h4>
+        <blockquote class="info left-align">
+            Input should be numbers separated by commas. Ex: 1, 2, 3
+        </blockquote>
+        <div class="input-field col s12">
+            <input id="edit-event-song-ids" type="text" v-model="editEventSongsData.songs">
+            <label for="edit-event-song-ids">Song IDs</label>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a class="modal-action modal-close waves-effect waves-green btn-flat ">Close</a>
+        <a class="modal-action waves-effect waves-green btn-flat edit-product-button"
+            @click.prevent="editEventSongs($event)"
+        >
+            Edit
         </a>
     </div>
 </div>

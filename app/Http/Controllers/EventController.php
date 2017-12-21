@@ -10,8 +10,10 @@ class EventController extends Controller
 {
     /**
      * Add Event
+     * AJAX
      *
-     * @return  String
+     * @param   Request $request
+     * @return  Integer
      */
     public function addEvent(Request $request)
     {
@@ -26,7 +28,9 @@ class EventController extends Controller
 
     /**
      * Edit Event
+     * AJAX
      *
+     * @param   Request $request
      * @return  String
      */
     public function editEvent(Request $request)
@@ -42,7 +46,9 @@ class EventController extends Controller
 
     /**
      * Delete Event
+     * AJAX
      *
+     * @param   Request $request
      * @return  String
      */
     public function deleteEvent(Request $request)
@@ -53,6 +59,56 @@ class EventController extends Controller
             $event->delete();
 
             return "OK";
+        }
+    }
+
+    /**
+     * Add Songs to specific Event
+     * AJAX
+     *
+     * @param   Request $request
+     * @return  JSON
+     */
+    public function addEventSongs(Request $request)
+    {
+        if($request->ajax()){
+            $event = Event::find($request->eventId);
+            $songsArray = explode(",", $request->eventSongs);
+
+            $i = 1;
+            foreach ($songsArray as $song) {
+                $event->songs()->attach($song, ['order' => $i]);
+                $i++;
+            }
+
+            return $event->songs;
+        }
+    }
+
+    /**
+     * Edit Songs of specific Event
+     *
+     * @param   Request $request
+     * @return  JSON
+     */
+    public function editEventSongs(Request $request)
+    {
+        if($request->ajax()){
+            $event = Event::find($request->eventId);
+            // This is an expensive operation of which
+            // should be subject to change to
+            // further improve performance
+            $event->songs()->detach();
+
+            $songsArray = explode(",", $request->eventSongs);
+
+            $i = 1;
+            foreach ($songsArray as $song) {
+                $event->songs()->attach($song, ['order' => $i]);
+                $i++;
+            }
+
+            return $event->songs;
         }
     }
 }

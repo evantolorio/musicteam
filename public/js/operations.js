@@ -14,8 +14,7 @@ var vm = new Vue({
 		songs: rawSongs,
 		showAddSong: false,
 		addEventData:{
-			name: '',
-			songs: []
+			name: ''
 		},
 		editEventData:{
 			index: 0,
@@ -26,6 +25,18 @@ var vm = new Vue({
 			index: 0,
 			eventId: 0,
 			name: ''
+		},
+		addEventSongsData:{
+			index: 0,
+			eventId: 0,
+			eventName: '',
+			songs: ''
+		},
+		editEventSongsData:{
+			index: 0,
+			eventId: 0,
+			eventName: '',
+			songs: ''
 		},
 		addSongData:{
 			title: '',
@@ -64,7 +75,7 @@ var vm = new Vue({
 
 			return _.sortBy(songs, ['title']);
 		}
-		
+
 	},
 	methods:{
 		searchSongById: function(id){
@@ -277,11 +288,16 @@ var vm = new Vue({
                 function(response){
 
 					var eventId = response.body;
+					var eventName = this.addEventData.name;
+					var nameArray = this.addEventData.name.split(';');
 
 					// Push data to local Vue data storage
 					this.events.push({
 						'id': eventId,
-						'name': this.addEventData.name,
+						'name': eventName,
+						'parsedName': nameArray[0],
+						'parsedDate': nameArray[1],
+						'showAddEventSongs': false,
 						'songs': []
 					});
 
@@ -296,6 +312,9 @@ var vm = new Vue({
 						// For enabling the button
 						$(event.target).removeClass('disabled');
 						event.target.innerHTML = 'Add';
+
+						// Initialize dynamically created dropdown
+						$('.dropdown-button').dropdown({});
 					});
 
                 },
@@ -336,8 +355,11 @@ var vm = new Vue({
 
 					// Update local Vue data storage
 					var index = this.editEventData.index;
+					var tokenizedName = this.editEventData.name.split(';');
 
 					this.events[index].name = this.editEventData.name;
+					this.events[index].parsedName = tokenizedName[0];
+					this.events[index].parsedDate = tokenizedName[1];
 
 					this.$nextTick(function(){
 						$('#edit-event-modal').modal('close');
@@ -396,6 +418,129 @@ var vm = new Vue({
 						// For enabling the button
 						$(event.target).removeClass('disabled');
 						event.target.innerHTML = 'Yes';
+					});
+                },
+                function(response){
+					Materialize.toast(response.statusText, 2000, 'red lighten-1');
+                    console.log(response.statusText);
+                }
+            );
+		},
+
+		toggleAddEventSongs: function(id){
+			var eventIndex = this.searchEventById(id);
+
+			this.addEventSongsData.index = eventIndex;
+			this.addEventSongsData.eventId = this.events[eventIndex].id;
+			this.addEventSongsData.name = this.events[eventIndex].name;
+			this.addEventSongsData.songs = ' ';
+
+			$('#add-event-songs-modal').modal('open');
+		},
+
+		addEventSongs: function(event){
+			// For disabling the button
+			$(event.target).addClass('disabled');
+			event.target.innerHTML = 'Adding Event Songs...';
+
+			// Do AJAX
+            this.$http.post(
+                '/event-songs',
+                {
+                    _token: $('meta[name="csrf-token"]').attr('content'),
+                    eventId: this.addEventSongsData.eventId,
+					eventSongs: this.addEventSongsData.songs
+                }
+            ).then(
+                function(response){
+
+					var eventIndex = this.addEventSongsData.index;
+
+					// Push data to local Vue data storage
+					this.events[eventIndex].songs = response.body;
+
+					this.$nextTick(function(){
+						Materialize.toast('Songs added to ' + this.addEventSongsData.name, 2000, 'green lighten-1');
+
+						$('#add-event-songs-modal').modal('close');
+
+						this.addEventSongsData.songs = '';
+						$('label.active').removeClass('active');
+
+						// For enabling the button
+						$(event.target).removeClass('disabled');
+						event.target.innerHTML = 'Add';
+
+						// Initialize dynamically created dropdown
+						$('.dropdown-button').dropdown({});
+					});
+
+                },
+                function(response){
+					Materialize.toast(response.statusText, 2000, 'red lighten-1');
+                    console.log(response.statusText);
+                }
+            );
+		},
+
+		toggleEditEventSongs: function(id){
+			var eventIndex = this.searchEventById(id);
+
+			this.editEventSongsData.index = eventIndex;
+			this.editEventSongsData.eventId = this.events[eventIndex].id;
+			this.editEventSongsData.name = this.events[eventIndex].name;
+			this.editEventSongsData.songs = (function(vm){
+				// This function produces a string of song ids
+				var concatenatedIds = '';
+
+				vm.events[eventIndex].songs.forEach(function(element, index){
+
+					if(index === vm.events[eventIndex].songs.length-1) concatenatedIds += element.id;
+					else concatenatedIds += element.id + ", ";
+				});
+
+				return concatenatedIds;
+			})(this);
+
+			$("label[for=edit-event-song-ids]").addClass('active');
+			$('#edit-event-songs-modal').modal('open');
+		},
+
+		editEventSongs: function(event){
+			// For disabling the button
+			$(event.target).addClass('disabled');
+			event.target.innerHTML = 'Editing Event Songs...';
+
+			// Do AJAX
+            this.$http.patch(
+                '/event-songs',
+                {
+                    _token: $('meta[name="csrf-token"]').attr('content'),
+					eventId: this.editEventSongsData.eventId,
+					eventSongs: this.editEventSongsData.songs
+                }
+            ).then(
+                function(response){
+
+					var eventIndex = this.editEventSongsData.index;
+
+					// Push data to local Vue data storage
+					this.events[eventIndex].songs = response.body;
+
+					this.$nextTick(function(){
+						Materialize.toast('Songs edited on ' + this.editEventSongsData.name, 2000, 'green lighten-1');
+
+						$('#edit-event-songs-modal').modal('close');
+
+						this.editEventSongsData.songs = '';
+						$('label.active').removeClass('active');
+
+						// For enabling the button
+						$(event.target).removeClass('disabled');
+						event.target.innerHTML = 'Edit';
+
+						// Initialize dynamically created dropdown
+						$('.dropdown-button').dropdown({});
 					});
                 },
                 function(response){
