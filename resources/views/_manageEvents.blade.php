@@ -106,6 +106,10 @@
 <div id="add-event-modal" class="modal">
     <div class="modal-content row">
         <h4>Add Event</h4>
+        <blockquote class="info left-align">
+            Name event and date should be separated by a semicolon " ; ". <br>
+            Ex: Youth Service (Week 1) ; February 30, 2020
+        </blockquote>
         <div class="input-field col s12">
             <input id="event-name" type="text" v-model="addEventData.name">
             <label for="event-name">Event Name</label>
@@ -125,6 +129,10 @@
 <div id="edit-event-modal" class="modal">
     <div class="modal-content row">
         <h4>Edit @{{ editEventData.name }}</h4>
+        <blockquote class="info left-align">
+            Name event and date should be separated by a semicolon " ; ". <br>
+            Ex: Youth Service (Week 1) ; February 30, 2020
+        </blockquote>
         <div class="input-field col s12">
             <input id="edit-name" type="text" v-model="editEventData.name">
             <label for="edit-name">Name</label>
@@ -163,7 +171,8 @@
     <div class="modal-content row">
         <h4>Add Songs to @{{ addEventSongsData.name }} </h4>
         <blockquote class="info left-align">
-            Input should be numbers separated by commas. Ex: 1, 2, 3
+            Input should be song ID numbers separated by commas. <br>
+            Ex: 1, 2, 3
         </blockquote>
         <div class="input-field col s12">
             <input id="event-song-ids" type="text" v-model="addEventSongsData.songs">
@@ -185,7 +194,8 @@
     <div class="modal-content row">
         <h4>Edit Songs of @{{ editEventSongsData.name }} </h4>
         <blockquote class="info left-align">
-            Input should be numbers separated by commas. Ex: 1, 2, 3
+            Input should be song ID numbers separated by commas. <br>
+            Ex: 1, 2, 3
         </blockquote>
         <div class="input-field col s12">
             <input id="edit-event-song-ids" type="text" v-model="editEventSongsData.songs">
