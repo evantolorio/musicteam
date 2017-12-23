@@ -12,7 +12,7 @@
 
             {{-- Left Column --}}
             {{-- Prototype for Line-ups --}}
-            <div id="setlist-container" class="col s6 offset-s1">
+            <div id="setlist-container" class="col s12 m12 l6 offset-l1">
 
                 <div class="carousel carousel-slider center z-depth-1" data-indicators="true">
                     {{-- <div class="carousel-fixed-item center">
@@ -37,7 +37,7 @@
             </div>
 
             {{-- Right Column --}}
-            <div class="col s4">
+            <div class="col s12 m12 l4">
                 {{-- Search Song --}}
                 <div class="col s12">
                     <div class="input-field col s6 left">

@@ -8,9 +8,9 @@
     </blockquote>
 </div>
 
-<div id="first-two-events-container" class="col s12">
+<div id="first-four-events-container" class="col s12">
     @foreach ($currentEvents as $event)
-        <div class="col s6" style="margin-top: 1rem;">
+        <div class="col s12 m12 l6" style="margin-top: 1rem;">
             <h6>
                 <span> {{ $event->parsedName }} </span> <br>
                 <span style="font-size:1rem;"> {{ $event->parsedDate }} </span>

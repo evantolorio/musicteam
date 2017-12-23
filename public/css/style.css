@@ -44,7 +44,7 @@ nav{
     font-size: 1.2rem;
     color: white;
     text-align: center;
-    height: 4.5rem;
+    min-height: 4.5rem;
     padding: 1rem;
     background-color: #01458e;
 }
